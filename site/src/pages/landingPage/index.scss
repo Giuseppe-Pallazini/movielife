@@ -1,13 +1,50 @@
 .main-LandingPage {
     display: flex;
     flex-direction: column;
+    //align-items: center;
+    background-color: rgb(17 24 99);
+    height: 100%;
 
-    .cabecalho{
+    .cabecalho {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: #202024;
+
+        .cabecalho-div2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 3em 10em 0 0;
+            width: 20%;
+
+            .cabecalho-div-darkMode img {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                bottom: 1em;
+            }
+        }
+
+        .cabecalho-div2 div {
+            width: 50px;
+            height: 9px;
+
+            background: #fff;
+            border-radius: 5px;
+            margin: .8em 0 0 0;
+        }
+
+        .cabecalho-div2 div img {
+
+        }
+
+        .cabecalho-div2 img {
+            width: 30px;
+            height: 30px;
+        }
     }
 
     
+
+
 }
