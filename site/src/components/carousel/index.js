@@ -1,8 +1,9 @@
 import './index.scss'
 
-import imgCreed from '../../assets/image/imgCreed3.png';
-import imgPanico from '../../assets/image/imgPanicoVI.png';
-import imgQuantumania from '../../assets/image/imgQuantumania.png';
+import imgCreed1 from '../../assets/image/imgCreed3.png';
+import { useEffect } from 'react';
+//import imgPanico from '../../assets/image/imgPanicoVI.png';
+//import imgQuantumania from '../../assets/image/imgQuantumania.png';
 
 
 export default function Index() {
@@ -12,32 +13,38 @@ export default function Index() {
 
     let id = 0;
 
-    function carrossel(){
+    function carrossel() {
         id++;
 
-
-        if(id > img.length - 1){
+        if (id > img.length - 1) {
             id = 0;
         }
 
 
-        imagens.style.transform = `translateX(${-id * 500}px)`;
+        imagens.style.transform = `translateX(${-id * 432}px)`;
     }
-    //setInterval(carrossel, 1800);
+
+    useEffect(() => {
+        setInterval(carrossel, 2000);        
+    })
+
 
 
     return (
-        <section className='carrossel'>
 
-            <div className='container' id='img'>
 
-                <img src={imgCreed} alt='' />
-                <img src={imgQuantumania} alt='' />
-                <img src={imgPanico} alt='' />
+        <main className='comp-car'>
 
-            </div>
+            <section className='carrossel'>
+                <div className='container' id='img'>
+                    <img src={imgCreed1} alt='' />
+                    <img src={imgCreed1} alt='' />
+                    <img src={imgCreed1} alt='' />
+                </div>
+            </section>
 
-        </section>
+        </main>
+
 
     )
 

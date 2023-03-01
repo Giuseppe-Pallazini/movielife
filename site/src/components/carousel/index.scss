@@ -1,11 +1,26 @@
-.container {
+.comp-car {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(0);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 
-    img {
-        object-fit: cover;
-        height: 300px;
-        width: 550px;
+    .carrossel {
+        overflow: hidden;
+        height: 261px;
+        width: 432px;
+
+        .container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(0);
+        }
+
+        img {
+            object-fit: cover;
+            height: 261px;
+            width: 432px;
+        }
+
     }
+
 }

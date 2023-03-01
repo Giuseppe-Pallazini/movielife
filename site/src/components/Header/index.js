@@ -9,7 +9,8 @@ import IconMoon from '../../assets/image/iconMoon.svg';
 import IconSun from '../../assets/image/iconSun.svg';
 import IconBuscaDark from '../../assets/image/buscaDark.png';
 
-import { useState } from 'react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 export default function Index() {
 
@@ -22,9 +23,11 @@ export default function Index() {
     const [corBackgroundBody, setCorBackgroundBody] = useState('rgb(17 24 39)');
     const [corContrariaBackground, setCorContrariaBackground] = useState('white');
 
+    const [abrirMenuUser, setAbrirMenuUser] = useState(0)
+
 
     function darkWhiteMode() {
-        setMudarPosicaoIcon('-.4em');
+        setMudarPosicaoIcon('-1.2em');
         setMudarIcon(IconSun);
         setCorBackgroundBody('#EBEBF0');
         setCorContrariaBackground('rgb(17 24 39)');
@@ -34,7 +37,7 @@ export default function Index() {
         setMudarOutline('2px solid rgb(17 24 39)');
 
 
-        if (mudarPosicaoIcon === '-.4em') {
+        if (mudarPosicaoIcon === '-1.2em') {
             setMudarPosicaoIcon('1.5em');
             setMudarIcon(IconMoon);
             setCorBackgroundBody('rgb(17 24 39)');
@@ -46,6 +49,17 @@ export default function Index() {
         }
     }
 
+    function menuUser() {
+        setAbrirMenuUser(1)
+
+        if(abrirMenuUser === 1)
+            setAbrirMenuUser(0)
+    }
+
+
+
+
+
     return (
         <main className='main-Header' style={{ backgroundColor: corBackgroundBody }} >
 
@@ -56,7 +70,7 @@ export default function Index() {
 
                     <div className='div-search'>
                         <img className='icon-busca' src={mudarIconBusca} alt='' />
-                        <input style={{ color: corContrariaBackground, borderBottom:mudarOutline }} />
+                        <input style={{ color: corContrariaBackground, borderBottom: mudarOutline }} />
                     </div>
 
                 </label>
@@ -68,7 +82,17 @@ export default function Index() {
 
                     </div>
 
-                    <img className='icon-user' src={mudarIconUser} alt='' />
+                    <label>
+                        <img className='icon-user' src={mudarIconUser} alt='' onClick={menuUser} />
+
+                        {abrirMenuUser === 1 &&
+                            <div className='div-menuUser'>
+                                <Link to='/myProfile' className='div-menuUser-Link'> Meu perfil</Link>
+                                <p className='div-menuUser-Link'> Histórico de compras </p>
+                                <p className='div-menuUser-Link'> Sair </p>
+                            </div>
+                        }
+                    </label>
                 </div>
 
             </header>

@@ -1,12 +1,16 @@
 .main-Header {
     display: flex;
     flex-direction: column;
-    //background-color: red;
     transition: .2s;
 
     textarea:focus, input:focus {
         box-shadow: 0 0 0 0;
         outline: 0;
+    }
+
+    a:active, a:link, a:visited {
+        text-decoration: none;
+        color: #111827;
     }
 
     .cabecalho {
@@ -62,7 +66,7 @@
                     width: 30px;
                     height: 30px;
 
-                    background-color: #fff;
+                    background-color: #ebebf0;
                     padding: 5px;
                     border-radius: 100%;
                     cursor: pointer;
@@ -75,12 +79,28 @@
                 width: 25px;
                 height: 30px;
             }
+
+            .div-menuUser {
+                transition: .2s;
+
+                .div-menuUser-Link {
+                    transition: .2s ;
+                }
+            }
+
+            
+
+            .div-menuUser-Link:hover {
+                color:#0051ff;
+                cursor: pointer;
+            }
         }
 
         .cabecalho-div2 div {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             width: 50px;
             height: 9px;
 
@@ -90,6 +110,32 @@
         .cabecalho-div2 img {
             width: 30px;
             height: 30px;
+        }
+
+        .cabecalho-div2 label {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .cabecalho-div2 label img {
+            cursor: pointer;
+        }
+
+        .cabecalho-div2 label div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-family: 'interRegular';
+
+            position: relative;
+            top: 3em;
+
+            color: #111827;
+            background-color: #ebebf0;
+            height: 4.5em;
+            width: 100%;
+            padding: 6px;
         }
     }
 
@@ -119,17 +165,7 @@
         flex-direction: column;
     }
     
-    .carrossel{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        height: 400px;
-
-       
-
-
-    }
+    
 
     
 }
