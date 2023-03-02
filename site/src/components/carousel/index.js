@@ -25,7 +25,7 @@ export default function Index() {
     }
 
     useEffect(() => {
-        setInterval(carrossel, 2000);        
+        setInterval(carrossel, 1800);
     })
 
 
@@ -37,9 +37,21 @@ export default function Index() {
 
             <section className='carrossel'>
                 <div className='container' id='img'>
-                    <img src={imgCreed1} alt='' />
-                    <img src={imgCreed1} alt='' />
-                    <img src={imgCreed1} alt='' />
+
+                    <div className='name-film'>
+                        <img src={imgCreed1} alt='' />
+                    </div>
+
+                    <p> Creed 3 </p>
+
+                    <div>
+                        <img src={imgCreed1} alt='' />
+                    </div>
+
+                    <div>
+                        <img src={imgCreed1} alt='' />
+                    </div>
+                    
                 </div>
             </section>
 

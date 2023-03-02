@@ -3,12 +3,15 @@
     flex-direction: column;
     transition: .2s;
 
-    textarea:focus, input:focus {
+    textarea:focus,
+    input:focus {
         box-shadow: 0 0 0 0;
         outline: 0;
     }
 
-    a:active, a:link, a:visited {
+    a:active,
+    a:link,
+    a:visited {
         text-decoration: none;
         color: #111827;
     }
@@ -23,28 +26,13 @@
             height: auto;
         }
 
-        .div-search {
-            .icon-busca {
-                width: 25px;
-                height: 25px;
-                transition: .2s;
-                position: relative;
-                left: 5px;
-                transform: translateY(120%);
-            }
-
+        .icon-busca {
+            width: 25px;
+            height: auto;
+            margin-right: 5px;
         }
 
-        .div-search input {
-            letter-spacing: 2px;
-        }
 
-        .div-search:focus-within {
-
-            .icon-busca {
-                transform: translateY(20%);
-            }
-        }
 
 
         .cabecalho-div2 {
@@ -84,14 +72,14 @@
                 transition: .2s;
 
                 .div-menuUser-Link {
-                    transition: .2s ;
+                    transition: .2s;
                 }
             }
 
-            
+
 
             .div-menuUser-Link:hover {
-                color:#0051ff;
+                color: #0051ff;
                 cursor: pointer;
             }
         }
@@ -129,20 +117,108 @@
             font-family: 'interRegular';
 
             position: relative;
-            top: 3em;
+            top: 3.5em;
 
             color: #111827;
             background-color: #ebebf0;
-            height: 4.5em;
+            height: 5em;
             width: 100%;
             padding: 6px;
         }
     }
 
-    .cabecalho label {
+    .cabecalho section {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: 'interRegular';
+
+        .wave-group {
+            position: relative;
+        }
+
+        .wave-group .input {
+            font-size: 16px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 200px;
+            border: none;
+            border-bottom: 1px solid #515151;
+            background: transparent;
+            color: #ebebf0;
+            font-family: 'interRegular';
+        }
+
+        .wave-group .input:focus {
+            outline: none;
+        }
+
+        .wave-group .label {
+            color: #ebebf0;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .wave-group .label-char {
+            -webkit-transition: 0.2s ease all;
+            transition: 0.2s ease all;
+            -webkit-transition-delay: calc(var(--index) * .02s);
+            transition-delay: calc(var(--index) * .02s);
+            
+        }
+
+        .wave-group .input:focus~label .label-char
+        ,
+        .wave-group .input:valid~label .label-char {
+            -webkit-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+            font-size: 14px;
+        }
+
+        .wave-group .bar {
+            position: relative;
+            display: block;
+            width: 200px;
+            border-bottom: 1px solid black;
+        }
+
+        .wave-group .bar:before,
+        .wave-group .bar:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            //
+            border-bottom: 1px solid white;
+            //
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        .wave-group .bar:before {
+            left: 50%;
+        }
+
+        .wave-group .bar:after {
+            right: 50%;
+        }
+
+        .wave-group .input:focus~.bar:before,
+        .wave-group .input:focus~.bar:after {
+            width: 50%;
+        }
+
+
     }
 
     .cabecalho label img {
@@ -164,8 +240,8 @@
         display: flex;
         flex-direction: column;
     }
-    
-    
 
-    
+
+
+
 }

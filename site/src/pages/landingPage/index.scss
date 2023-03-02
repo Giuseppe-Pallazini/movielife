@@ -1,4 +1,19 @@
 .main-LandingPage {
 
     background-color: rgb(17 24 39);
+
+    .faixa-prop {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+
+        .images-prop {
+            align-items: center;
+            flex-direction: row;
+        }
+
+    }
+
+
 }

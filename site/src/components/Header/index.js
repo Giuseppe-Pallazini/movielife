@@ -19,11 +19,11 @@ export default function Index() {
     const [mudarIconUser, setMudarIconUser] = useState(IconUser);
     const [mudarIconBusca, setMudarIconBusca] = useState(IconBusca);
     const [mudarLogo, setMudarLogo] = useState(LogoBranca);
-    const [mudarOutline, setMudarOutline] = useState('2px solid #EBEBF0');
+    //const [mudarOutline, setMudarOutline] = useState('2px solid #EBEBF0');
     const [corBackgroundBody, setCorBackgroundBody] = useState('rgb(17 24 39)');
     const [corContrariaBackground, setCorContrariaBackground] = useState('white');
 
-    const [abrirMenuUser, setAbrirMenuUser] = useState(0)
+    const [abrirMenuUser, setAbrirMenuUser] = useState(0);
 
 
     function darkWhiteMode() {
@@ -34,7 +34,7 @@ export default function Index() {
         setMudarIconUser(IconUserDark);
         setMudarIconBusca(IconBuscaDark);
         setMudarLogo(LogoDark);
-        setMudarOutline('2px solid rgb(17 24 39)');
+        // setMudarOutline('2px solid rgb(17 24 39)');
 
 
         if (mudarPosicaoIcon === '-1.2em') {
@@ -45,14 +45,14 @@ export default function Index() {
             setMudarIconUser(IconUser);
             setMudarIconBusca(IconBusca);
             setMudarLogo(LogoBranca);
-            setMudarOutline('2px solid #EBEBF0');
+            //setMudarOutline('2px solid #EBEBF0');
         }
     }
 
     function menuUser() {
         setAbrirMenuUser(1)
 
-        if(abrirMenuUser === 1)
+        if (abrirMenuUser === 1)
             setAbrirMenuUser(0)
     }
 
@@ -65,15 +65,30 @@ export default function Index() {
 
             <header className='cabecalho'>
 
-                <label>
+                <section>
                     <img className='logo' src={mudarLogo} alt='' />
 
-                    <div className='div-search'>
-                        <img className='icon-busca' src={mudarIconBusca} alt='' />
+                    {/* <div className='div-search'>
                         <input style={{ color: corContrariaBackground, borderBottom: mudarOutline }} />
+                    </div> */}
+                    <div>
+                        <img className='icon-busca' src={mudarIconBusca} alt='' />
                     </div>
 
-                </label>
+                    <div className="wave-group" style={{color:corContrariaBackground}} >
+                        <input required type="text" className="input" style={{borderBottom:corContrariaBackground, color:corContrariaBackground}} />
+                        <span className="bar" style={{borderBottom:corContrariaBackground}} />
+                        <label className="label" style={{color:corContrariaBackground}}>
+                            <span className="label-char" style={{ index: 0, color:corContrariaBackground }}>B</span>
+                            <span className="label-char" style={{ index: 1 }}>u</span>
+                            <span className="label-char" style={{ index: 2 }}>s</span>
+                            <span className="label-char" style={{ index: 3 }}>c</span>
+                            <span className="label-char" style={{ index: 4 }}>a</span>
+                            <span className="label-char" style={{ index: 5 }}>r</span>
+                        </label>
+                    </div >
+
+                </section>
 
                 <div className='cabecalho-div2'>
                     <div className='cabecalho-div-darkMode' style={{ backgroundColor: corContrariaBackground }}>
@@ -88,16 +103,16 @@ export default function Index() {
                         {abrirMenuUser === 1 &&
                             <div className='div-menuUser'>
                                 <Link to='/myProfile' className='div-menuUser-Link'> Meu perfil</Link>
-                                <p className='div-menuUser-Link'> Histórico de compras </p>
-                                <p className='div-menuUser-Link'> Sair </p>
+                                <Link to='/myPurchaseHistory' className='div-menuUser-Link'> Histórico de compras </Link>
+                                <Link to='/LogOut' className='div-menuUser-Link'> Sair </Link>
                             </div>
                         }
                     </label>
                 </div>
 
-            </header>
+            </header >
 
 
-        </main>
+        </main >
     )
 }
