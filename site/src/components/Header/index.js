@@ -10,7 +10,8 @@ import IconSun from '../../assets/image/iconSun.svg';
 import IconBuscaDark from '../../assets/image/buscaDark.png';
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Storage } from 'local-storage'
 
 export default function Index() {
 
@@ -25,6 +26,8 @@ export default function Index() {
 
     const [abrirMenuUser, setAbrirMenuUser] = useState(0);
 
+    const [borderButton, setBorderButton] = useState('2px solid white')
+
 
     function darkWhiteMode() {
         setMudarPosicaoIcon('-1.2em');
@@ -35,7 +38,7 @@ export default function Index() {
         setMudarIconBusca(IconBuscaDark);
         setMudarLogo(LogoDark);
         // setMudarOutline('2px solid rgb(17 24 39)');
-
+        setBorderButton('2px solid rgb(17 24 39')
 
         if (mudarPosicaoIcon === '-1.2em') {
             setMudarPosicaoIcon('1.5em');
@@ -46,6 +49,7 @@ export default function Index() {
             setMudarIconBusca(IconBusca);
             setMudarLogo(LogoBranca);
             //setMudarOutline('2px solid #EBEBF0');
+            setBorderButton('2px solid white')
         }
     }
 
@@ -56,8 +60,11 @@ export default function Index() {
             setAbrirMenuUser(0)
     }
 
+    let navigate = useNavigate() 
+    function navigateMovie() {
+        navigate('/')
 
-
+    }
 
 
     return (
@@ -66,7 +73,7 @@ export default function Index() {
             <header className='cabecalho'>
 
                 <section>
-                    <img className='logo' src={mudarLogo} alt='' />
+                    <img className='logo' src={mudarLogo} alt='' onClick={navigateMovie} />
 
                     {/* <div className='div-search'>
                         <input style={{ color: corContrariaBackground, borderBottom: mudarOutline }} />
@@ -111,6 +118,10 @@ export default function Index() {
                 </div>
 
             </header >
+
+            <div className='div-button'>
+                <button className='button' style={{color:corContrariaBackground, border:borderButton}}> Hover-me :) </button>
+            </div>
 
 
         </main >

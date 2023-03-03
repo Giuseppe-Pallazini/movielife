@@ -242,6 +242,38 @@
     }
 
 
+    .div-button {
+        margin-left: 4.5em;
+        .button {
+            font-family: 'interRegular';
+            cursor: pointer;
+            color: white;
+            background: transparent;
+            border: 2px solid white;
+            padding: 1em;
+            border-radius: 5px;
+            transition: .4s;
+            animation: kf-button 2s ease-in-out infinite;
+        }
 
+        .button:hover {
+            background: darkcyan;
+            transform: rotate(-30%);
+        }
+    }
+
+    @keyframes kf-button {
+        0% {
+            transform: translateX(0px);
+        }
+
+        50% {
+            transform: translateX(20px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
 
 }
