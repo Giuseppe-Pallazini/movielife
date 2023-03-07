@@ -1,19 +1,92 @@
 .main-LandingPage {
-
-    background-color: rgb(17 24 39);
+    display: flex;
+    flex-direction: column;
 
     .faixa-prop {
         display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-
+        justify-content: center;
+        margin-top: 3em;
 
         .images-prop {
-            align-items: center;
+            display: flex;
+            justify-content: space-around;
             flex-direction: row;
+            width: 100%;
+
+            .images-prop-div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
+        .images-prop p {
+            font-family: 'coolvetica';
+            width: 70%;
+            font-size: 25px;
+            text-align: center;
+        }
+
+
+
     }
+
+    .section2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .section2-div1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 70%;
+            margin: 10em 0 0 0;
+
+            .span-filme {
+                font-size: 25px;
+                margin-bottom: .4em;
+            }
+
+            .span-linha {
+                height: 1.5px;
+                width: 30%;
+                background: white;
+                border-radius: 5px;
+            }
+        }
+
+        .section2-div2 {
+            display: flex;
+            justify-content: center;
+
+            .div-filmes {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 70%;
+
+                .img-filmes {
+                    width: 200px;
+                    height: auto;
+                    margin: 1em 1em 1em 0;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: .2s;
+                }
+
+                .img-filmes:hover {
+                    transform: scale(1.03);
+                    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+
+
+
 
 
 }

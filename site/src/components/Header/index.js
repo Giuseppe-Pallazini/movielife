@@ -9,9 +9,9 @@ import IconMoon from '../../assets/image/iconMoon.svg';
 import IconSun from '../../assets/image/iconSun.svg';
 import IconBuscaDark from '../../assets/image/buscaDark.png';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
-import { Storage } from 'local-storage'
+import storage from 'local-storage'
 
 export default function Index() {
 
@@ -20,36 +20,21 @@ export default function Index() {
     const [mudarIconUser, setMudarIconUser] = useState(IconUser);
     const [mudarIconBusca, setMudarIconBusca] = useState(IconBusca);
     const [mudarLogo, setMudarLogo] = useState(LogoBranca);
-    //const [mudarOutline, setMudarOutline] = useState('2px solid #EBEBF0');
     const [corBackgroundBody, setCorBackgroundBody] = useState('rgb(17 24 39)');
     const [corContrariaBackground, setCorContrariaBackground] = useState('white');
 
     const [abrirMenuUser, setAbrirMenuUser] = useState(0);
 
-    const [borderButton, setBorderButton] = useState('2px solid white')
-
-
     function darkWhiteMode() {
-        setMudarPosicaoIcon('-1.2em');
-        setMudarIcon(IconSun);
-        setCorBackgroundBody('#EBEBF0');
-        setCorContrariaBackground('rgb(17 24 39)');
-        setMudarIconUser(IconUserDark);
-        setMudarIconBusca(IconBuscaDark);
-        setMudarLogo(LogoDark);
-        // setMudarOutline('2px solid rgb(17 24 39)');
-        setBorderButton('2px solid rgb(17 24 39')
 
-        if (mudarPosicaoIcon === '-1.2em') {
+        if (mudarPosicaoIcon === '1.5em') {
+            setMudarPosicaoIcon('-1.2em');
+            storage('mode', 'light')
+        }
+
+        else if (mudarPosicaoIcon === '-1.2em') {
             setMudarPosicaoIcon('1.5em');
-            setMudarIcon(IconMoon);
-            setCorBackgroundBody('rgb(17 24 39)');
-            setCorContrariaBackground('white');
-            setMudarIconUser(IconUser);
-            setMudarIconBusca(IconBusca);
-            setMudarLogo(LogoBranca);
-            //setMudarOutline('2px solid #EBEBF0');
-            setBorderButton('2px solid white')
+            storage('mode', 'dark')
         }
     }
 
@@ -60,11 +45,43 @@ export default function Index() {
             setAbrirMenuUser(0)
     }
 
-    let navigate = useNavigate() 
+    let navigate = useNavigate()
     function navigateMovie() {
         navigate('/')
 
     }
+
+    function changeToLight() {
+        setMudarIcon(IconSun);
+        setCorBackgroundBody('#EBEBF0');
+        setCorContrariaBackground('rgb(17 24 39)');
+        setMudarIconUser(IconUserDark);
+        setMudarIconBusca(IconBuscaDark);
+        setMudarLogo(LogoDark);
+    }
+
+    function changeToDark() {
+        setMudarIcon(IconMoon);
+        setCorBackgroundBody('rgb(17 24 39)');
+        setCorContrariaBackground('white');
+        setMudarIconUser(IconUser);
+        setMudarIconBusca(IconBusca);
+        setMudarLogo(LogoBranca);
+    }
+
+
+    // eslint-disable-next-line
+    useEffect(() => {
+        if (storage('mode') === 'dark') {
+            changeToDark()
+            setMudarPosicaoIcon('1.5em')
+        }
+        else if (storage('mode') === 'light') {
+            changeToLight()
+            setMudarPosicaoIcon('-1.2em')
+        }
+
+    })
 
 
     return (
@@ -75,18 +92,15 @@ export default function Index() {
                 <section>
                     <img className='logo' src={mudarLogo} alt='' onClick={navigateMovie} />
 
-                    {/* <div className='div-search'>
-                        <input style={{ color: corContrariaBackground, borderBottom: mudarOutline }} />
-                    </div> */}
                     <div>
                         <img className='icon-busca' src={mudarIconBusca} alt='' />
                     </div>
 
-                    <div className="wave-group" style={{color:corContrariaBackground}} >
-                        <input required type="text" className="input" style={{borderBottom:corContrariaBackground, color:corContrariaBackground}} />
-                        <span className="bar" style={{borderBottom:corContrariaBackground}} />
-                        <label className="label" style={{color:corContrariaBackground}}>
-                            <span className="label-char" style={{ index: 0, color:corContrariaBackground }}>B</span>
+                    <div className="wave-group" style={{ color: corContrariaBackground }} >
+                        <input required type="text" className="input" style={{ borderBottom: corContrariaBackground, color: corContrariaBackground }} />
+                        <span className="bar" style={{ borderBottom: corContrariaBackground }} />
+                        <label className="label" style={{ color: corContrariaBackground }}>
+                            <span className="label-char" style={{ index: 0, color: corContrariaBackground }}>B</span>
                             <span className="label-char" style={{ index: 1 }}>u</span>
                             <span className="label-char" style={{ index: 2 }}>s</span>
                             <span className="label-char" style={{ index: 3 }}>c</span>
@@ -98,20 +112,21 @@ export default function Index() {
                 </section>
 
                 <div className='cabecalho-div2'>
-                    <div className='cabecalho-div-darkMode' style={{ backgroundColor: corContrariaBackground }}>
-                        <img style={{ left: mudarPosicaoIcon, backgroundColor: corContrariaBackground }} className='icon-moon' src={mudarIcon} alt='' onClick={darkWhiteMode} />
-
-
+                    <div>
+                        <div className='cabecalho-div-darkMode' style={{ backgroundColor: corContrariaBackground }}>
+                            <img style={{ left: mudarPosicaoIcon, backgroundColor: corContrariaBackground }} className='icon-moon' src={mudarIcon} alt='' onClick={darkWhiteMode} />
+                        </div>
+                        <img className='icon-user' src={mudarIconUser} alt='' onClick={menuUser} />
                     </div>
 
                     <label>
-                        <img className='icon-user' src={mudarIconUser} alt='' onClick={menuUser} />
+
 
                         {abrirMenuUser === 1 &&
-                            <div className='div-menuUser'>
-                                <Link to='/myProfile' className='div-menuUser-Link'> Meu perfil</Link>
-                                <Link to='/myPurchaseHistory' className='div-menuUser-Link'> Histórico de compras </Link>
-                                <Link to='/LogOut' className='div-menuUser-Link'> Sair </Link>
+                            <div style={{backgroundColor:corContrariaBackground, color:corBackgroundBody}} className='div-menuUser'>
+                                <Link to='/myProfile' className='div-menuUser-Link' style={{color:corBackgroundBody}}> Meu perfil</Link>
+                                <Link to='/myPurchaseHistory' className='div-menuUser-Link' style={{color:corBackgroundBody}}> Histórico de compras </Link>
+                                <Link to='/LogOut' className='div-menuUser-Link' style={{color:corBackgroundBody}}> Sair </Link>
                             </div>
                         }
                     </label>
@@ -119,9 +134,7 @@ export default function Index() {
 
             </header >
 
-            <div className='div-button'>
-                <button className='button' style={{color:corContrariaBackground, border:borderButton}}> Hover-me :) </button>
-            </div>
+           
 
 
         </main >
