@@ -106,6 +106,12 @@ export default function Index() {
                             <span className="label-char" style={{ index: 3 }}>c</span>
                             <span className="label-char" style={{ index: 4 }}>a</span>
                             <span className="label-char" style={{ index: 5 }}>r</span>
+                            <span className="label-char" style={{ index: 5 }}> - </span>
+                            <span className="label-char" style={{ index: 5 }}>F</span>
+                            <span className="label-char" style={{ index: 5 }}>i</span>
+                            <span className="label-char" style={{ index: 5 }}>l</span>
+                            <span className="label-char" style={{ index: 5 }}>m</span>
+                            <span className="label-char" style={{ index: 5 }}>e</span>
                         </label>
                     </div >
 

@@ -16,7 +16,8 @@ import ShazamVertical from '../../assets/image/shazamVertical.png';
 import MarioVertical from '../../assets/image/marioBrosVertical.png';
 import johnWickVertical from '../../assets/image/johnWickVertical.png';
 import Creed3Vertical from '../../assets/image/creed3Vertical.jpg';
-import QuantumaniaVertical from '../../assets/image/quantumaniaVertical.png'
+import QuantumaniaVertical from '../../assets/image/quantumaniaVertical.png';
+import GatoDeBostaVertical from '../../assets/image/gatoDeBostaVertical.png';
 
 import { useEffect, useState } from 'react';
 import storage from 'local-storage';
@@ -31,9 +32,9 @@ export default function Index() {
 
     const [count, setCount] = useState(0)
 
-    const images = [ShazamVertical, MarioVertical, johnWickVertical, Creed3Vertical, QuantumaniaVertical, johnWickVertical, johnWickVertical, johnWickVertical]
+    const images = [ShazamVertical, MarioVertical, johnWickVertical, Creed3Vertical, QuantumaniaVertical, GatoDeBostaVertical, johnWickVertical, johnWickVertical]
 
-    const links = ['/filmes/shazam', '/filmes/mario', '/filmes/johnWick', '/filmes/johnWick', '/filmes/johnWick', '/filmes/johnWick', '/filmes/johnWick', '/filmes/johnWick',]
+    const links = ['/filmes/shazam', '/filmes/mario', '/filmes/johnWick', '/filmes/creed3', '/filmes/quantumania', '/filmes/gatoDeBotas', '/filmes/johnWick', '/filmes/johnWick',]
 
     setTimeout(() => {
         setCount(count + 1);
@@ -62,7 +63,7 @@ export default function Index() {
 
     return (
         <main className='main-LandingPage' style={{ backgroundColor: corBackgroundBody }} >
-
+            
             <Header />
 
             <Carousel />
@@ -101,7 +102,7 @@ export default function Index() {
             <section className='section2'>
                 <div className='section2-div1'>
                     <span className='span-filme' style={{ color: corContrariaBackground, fontFamily: 'coolvetica' }}> Filmes em cartaz </span>
-                    <span className='span-linha' />
+                    <span className='span-linha' style={{background: corContrariaBackground}} />
                 </div>
                 <div className='section2-div2'>
                     <div className='div-filmes'>
